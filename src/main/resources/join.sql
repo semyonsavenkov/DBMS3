@@ -1,0 +1,1 @@
+SELECT product_name FROM DBMS2.orders JOIN DBMS2.customers ON orders.customer_id = customers.id WHERE lower(customers.name) = 'kim';
