@@ -1,17 +1,17 @@
 insert into dbms3.CUSTOMERS(name, surName, age, phone_number)
-    values ('Ivan', 'Ivanov', 28, 79039551083);
+    values ('Ivan', 'Ivanov', 28, '79039551083');
 
 insert into dbms3.CUSTOMERS(name, surName, age, phone_number)
-values ('Alexey', 'Ivanov', 23, 79039552356);
+values ('Alexey', 'Ivanov', 23, '79039551083');
 
 insert into dbms3.CUSTOMERS(name, surName, age, phone_number)
-values ('ALEXEY', 'Pavlov', 24, 79039557845);
+values ('ALEXEY', 'Pavlov', 24, '79039551083');
 
 insert into dbms3.CUSTOMERS(name, surName, age, phone_number)
-values ('Sergey', 'Kim', 31, 79039551496);
+values ('Sergey', 'Kim', 31, '79039551083');
 
 insert into dbms3.CUSTOMERS(name, surName, age, phone_number)
-values ('Irina', 'Li', 32, 79039559512);
+values ('Irina', 'Li', 32, '79039551083');
 
 
 insert into dbms3.ORDERS(data, customer_id, product_name, amount)

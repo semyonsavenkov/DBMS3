@@ -1,0 +1,2 @@
+SQL Error [23503]: ERROR: insert or update on table "orders" violates foreign key constraint "orders_customer_id_fkey"
+  Подробности: Key (customer_id)=(1) is not present in table "customers".

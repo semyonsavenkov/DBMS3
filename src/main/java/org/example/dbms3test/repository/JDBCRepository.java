@@ -15,13 +15,21 @@ import java.util.stream.Collectors;
 @Repository
 public class JDBCRepository {
 
-    NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final String scriptSQL = read("searchByName.sql");
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public JDBCRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate){
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
-    private final String scriptSQL = read("searchByName.sql");
+    public List<String> getProductName(String name) {
+        return namedParameterJdbcTemplate.queryForList(scriptSQL,
+                new MapSqlParameterSource("name", name), String.class);
+//        return namedParameterJdbcTemplate.query(scriptSQL,
+//                new MapSqlParameterSource("name", name),
+//                (rs, rowNum) -> rs.getString("product_name"));
+
+    }
 
     private static String read(String scriptFileName) {
         try (InputStream is = new ClassPathResource(scriptFileName).getInputStream();
@@ -30,12 +38,6 @@ public class JDBCRepository {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public List<String> getProductName(String name) {
-        return namedParameterJdbcTemplate.query(scriptSQL,
-                new MapSqlParameterSource("name", name),
-                (rs, rowNum) -> rs.getString("product_name"));
     }
 
 }

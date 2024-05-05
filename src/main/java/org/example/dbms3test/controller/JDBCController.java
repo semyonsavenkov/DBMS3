@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
 public class JDBCController {
 
-    final JDBCRepository jdbcRepository;
+    private final JDBCRepository jdbcRepository;
+
+    public JDBCController(JDBCRepository jdbcRepository) {
+        this.jdbcRepository = jdbcRepository;
+    }
 
     @GetMapping("/products/fetch-product")
     public ResponseEntity<?> getProductName(@RequestParam String name) {
